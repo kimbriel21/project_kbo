@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    KIM BRIEL LOVE ANGELYN
                 </div>
 
                 <div class="links">
