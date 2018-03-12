@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\CryptoCurrency;
+
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Globals\jsonRPCClient;
+
 use Request;
 
 
-
-class Wallet
+class Wallet extends Controller
 {
 	private $jsonrpc;
 	private $uri;
@@ -15,6 +16,7 @@ class Wallet
 	function __construct()
 	{
 		// parent::__construct("159.89.205.160", "2332", "user", "password");
+    // $this->middleware('jwt.auth');
 		$this->jsonrpc = new jsonRPCClient("http://user:password@159.89.205.160:2332/");
 	}
 
@@ -37,11 +39,13 @@ class Wallet
   }
 
 
-  function get_transaction_list($user_key)
+  function get_transaction_list()
   {
-     $data['count'] = 1;
-     $data['trasaction_list'] = $this->getTransactionList($user_key);
-     return view('crypto.transaction_list_table', $data);
+    $user_key = Request::input('user_key');
+    
+    $data['count'] = 1;
+    $data['trasaction_list'] = $this->getTransactionList($user_key);
+    return view('crypto.transaction_list_table', $data);
   }
 
   function send_coin_request()

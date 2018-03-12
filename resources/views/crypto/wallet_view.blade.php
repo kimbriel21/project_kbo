@@ -9,7 +9,6 @@
 <body>
 
 <div class="container">
-	{{App::environment().' '.config('app.timezone')}}
 	<div class="d-flex flex-column justify-content-center" style=" text-align: center;">
 		<div class="username-wrapper">
 			<div style="font-size: 25px;">

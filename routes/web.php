@@ -34,3 +34,29 @@ Route::any('/get_wallet_balance/{user_key}', 'CryptoCurrency\Wallet@get_wallet_b
 /*
 Chat System
 */
+// Route::any('/chat', function()
+// {
+// 	return view('chat.chat_view');
+// });
+
+Route::any('/chat', 'ChatSystem\ChatController@chat');
+Route::any('/send', 'ChatSystem\ChatController@send');
+
+
+
+/*Angular JS*/
+
+Route::any('/angularjs', 'AngularJS\AngularJSController@index');
+
+
+/*JWT JSON WEB TOKEN*/
+Route::get('/token/auth', 'Auth\TokenController@authenticate');
+Route::get('/token/get_token', 'Auth\TokenController@get_token');
+
+
+Route::any('/layoutpractice', function()
+{
+	return view('practice_layout');
+});
+
+Route::any('/test', 'Auth\TokenController@test');
